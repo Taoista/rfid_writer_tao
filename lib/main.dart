@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutter_nfc_kit/flutter_nfc_kit.dart';
+import 'package:rfid_writer_tao/screens/create/create_screens.dart';
+import 'package:rfid_writer_tao/screens/read/read_screens.dart';
+import 'package:ndef/ndef.dart' as ndef;
 void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
@@ -24,10 +27,6 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _selectedIndex = 0;
 
-  static const List<Widget> _widgetOptions = <Widget>[
-    Text('Index 0: Placeholder for Screen 1'),
-    Text('Index 1: Placeholder for Screen 2'),
-  ];
 
   void _onItemTapped(int index) {
     setState(() {
@@ -35,15 +34,14 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Material App Bar'),
       ),
-      body: Center(
-        child: _widgetOptions.elementAt(_selectedIndex),
-      ),
+      body: _selectedIndex == 0 ? CreateScreens() : ReadScreens(),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(

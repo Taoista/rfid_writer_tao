@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_nfc_kit/flutter_nfc_kit.dart';
 import 'package:rfid_writer_tao/screens/create/create_screens.dart';
 import 'package:rfid_writer_tao/screens/read/read_screens.dart';
-import 'package:ndef/ndef.dart' as ndef;
 void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
@@ -39,9 +37,10 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Material App Bar'),
+        title: const Text('RFID Neuma Demo'),
       ),
       body: _selectedIndex == 0 ? CreateScreens() : ReadScreens(),
+      // body: _selectedIndex == 0 ? ReadScreens() : ReadScreens(),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
